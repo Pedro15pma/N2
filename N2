@@ -1,0 +1,51 @@
+var idades = [];
+
+function adicionarIdade() {
+    var idade = document.getElementById("idade").value;
+    idades.push(Number(idade));  // Adiciona a idade à lista
+    document.getElementById("lista-idades").innerText = "Idades: " + idades;
+    document.getElementById("idade").value = "";  // Limpa o campo
+}
+
+function calcularMedia() {
+    var soma = 0;
+    for (var i = 0; i < idades.length; i++) {
+        soma += idades[i];
+    }
+    var media = soma / idades.length;
+
+    if (media <= 25) {
+        document.getElementById("resultado").innerText = "Turma Jovem";
+    } else if (media <= 60) {
+        document.getElementById("resultado").innerText = "Turma Adulta";
+    } else {
+        document.getElementById("resultado").innerText = "Turma Idosa";
+    }
+}
+
+////////////
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+input, button {
+    margin: 5px 0;
+    padding: 5px;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
